@@ -26,12 +26,7 @@ function fetchGame() {
     .then(resp => resp.json())
     .then(games => {
         games.forEach(game => {
-            const gameDiv = document.getElementsByClassName("box")[0]
-            const image = document.createElement("img")
-            image.src = game.background_image
-            image.setAttribute("class", "cough-pic")
-            // image.className = "cough-pic"
-            gameDiv.appendChild(image)
+            console.log(game.main_image)
         });
         
     })
