@@ -3,6 +3,13 @@ const USERS_URL = `${BASE_URL}/users`
 const GAMES_URL = `${BASE_URL}/games`
 const SCORES_URL = `${BASE_URL}/scores`
 
+document.addEventListener("DOMContentLoaded", () => {
+    const startButton = document.getElementById("btn-start")
+    startButton.addEventListener("click", () => {
+        fetchGame()
+    })
+})
+
 fetch(USERS_URL)
     .then(resp => resp.json())
     .then(users => {
@@ -14,7 +21,8 @@ fetch(USERS_URL)
         
     })
 
-fetch(GAMES_URL)
+function fetchGame() {
+    fetch(GAMES_URL)
     .then(resp => resp.json())
     .then(games => {
         games.forEach(game => {
@@ -27,7 +35,5 @@ fetch(GAMES_URL)
         });
         
     })
-
-// document.addEventListener("DOMContentLoaded", () => {
-    
-// })
+    startTimer()
+}
