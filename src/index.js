@@ -21,6 +21,8 @@ fetch(GAMES_URL)
             const gameDiv = document.getElementsByClassName("box")[0]
             const image = document.createElement("img")
             image.src = game.background_image
+            image.setAttribute("class", "cough-pic")
+            // image.className = "cough-pic"
             gameDiv.appendChild(image)
         });
         
