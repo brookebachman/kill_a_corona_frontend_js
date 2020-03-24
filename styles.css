@@ -43,6 +43,14 @@ header .score-box {
 	border: 2px solid black;
 }
 
+header .timer-num {
+	float: right;
+	width: 100px;
+	padding: 10px;
+	border: 2px solid black;
+}
+
+
 .score-box h2 {
 	margin-top: 0;
 	margin-bottom: 10px;

@@ -1,13 +1,20 @@
-function gameTimer(){
-    const timerNumber = document.getElementById("timer-num")
-    while (seconds > 0) {
-        
-        seconds -= 1;
-        timerNumber.innerText = seconds;
-       
-        // code block to be executed
-      }
-      return "Time's Up!"
+//need to set seconds back to 0.
+//reset score and anything that is temporary side effect
+
+function endTheGame(){
+  
+}
+
+
+
+
+
+
+
+
+
+    function pauseTimer(){
+
     }
 
     //only want to end timer if time runs out or person pauses with stop button.

@@ -11,12 +11,15 @@ const virusWhackedImg = "assets/x.png";
 const gameTime = 12000;
 const minPopUpTime = 1000;
 const maxPopUpTime = 2000;
+const timerNumber = document.getElementById("timer-num");
 
 // Game State Variables
 let timeUp = false;
 let score = 0;
 let gameTimer = null;
 let popUpTimer = null;
+let decrementSeconds = null;
+let seconds = 12;
 
 // Random virus
 let virus = randomVirus(viruses);
@@ -31,6 +34,7 @@ startButton.addEventListener("click", () => {
 })
 	
 function init() {
+	
 	scoreNum.innerText = score;
 	timeUp = false;
 	startButton.innerText = "Stop Game";
@@ -40,6 +44,12 @@ function init() {
 		startButton.innerText = "Start Game";
 		timeUp = true;
 	}, gameTime);		
+	decrementSeconds = setInterval(function(){
+		console.log("set interval is running")
+		seconds -= 1;
+		timerNumber.innerText = seconds + "seconds left!";
+	}, 1000)
+	
 	}
 	
 function stop(){
@@ -49,6 +59,7 @@ function stop(){
 	Array.prototype.map.call(viruses, virus => virus.classList.remove("up"))
 	clearInterval(popUpTimer);
 	clearInterval(gameTimer);
+	clearInterval(decrementSeconds);
 }
 	
 function popUp(){
