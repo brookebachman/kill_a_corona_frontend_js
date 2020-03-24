@@ -85,7 +85,7 @@ header .score-box {
 	width: 80px;
 	position: absolute;
 	left: 50px;
-	bottom: -78px;
+	bottom: -85px;
     transition: bottom 0.5s ease;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -97,7 +97,7 @@ header .score-box {
 	bottom: 0;
 }
 
-.virus-pic.bonked {
+.virus-pic.whacked {
 	-webkit-animation-name: shake;
   animation-name: shake;
 	-webkit-animation-duration: 0.5s;

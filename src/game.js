@@ -46,11 +46,7 @@ function stop(){
 	console.log("Game Stopped...");
 	startButton.innerText = "Start Game";
 	timeUp = true;
-	let virusesOnPage = document.getElementsByClassName("up")
-	virusesOnPage.forEach(virus => {
-		virus.classList.remove("up")
-	}
-	)
+	Array.prototype.map.call(viruses, virus => virus.classList.remove("up"))
 	clearInterval(popUpTimer);
 	clearInterval(gameTimer);
 }
