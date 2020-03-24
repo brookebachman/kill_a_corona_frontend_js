@@ -5,7 +5,7 @@ const numViruses = viruses.length;
 		
 // Images
 const virusImg = "assets/virus.png";
-const virusWhackedImg = "assets/virus-x";
+const virusWhackedImg = "assets/mad.png";
 
 // Game Parameters
 const gameTime = 12000;
@@ -17,8 +17,10 @@ let prevVirusNumber = null;
 let timeUp = false;
 let score = 0;
 let gameTimer = null;
-let peepTimer = null;	
+let peepTimer = null;
 
+// Random virus
+let virus = randomVirus(viruses);
 
 startButton.addEventListener("click", () => {
 	if(startButton.innerText === "Start Game"){
@@ -46,14 +48,17 @@ function stop(){
 	console.log("Game Stopped...");
 	startButton.innerText = "Start Game";
 	timeUp = true;
-	viruses.classList.remove("up");
+	let virusesOnPage = document.getElementsByClassName("up")
+	virusesOnPage.forEach(virus => {
+		virus.classList.remove("up")
+	}
+	)
 	clearInterval(peepTimer);
 	clearInterval(gameTimer);
 }
 	
 function peep(){
 	const time = randomTime(minPeepTime, maxPeepTime);
-	const virus = randomVirus(viruses);
 	virus.classList.add("up");
 	peepTimer = setTimeout(() => {
 		virus.classList.remove("up");
@@ -63,24 +68,19 @@ function peep(){
 	}, time);
 }
 	
-function whack(virus) {
-	virus.addEventListener("click", () => {
-		if(virus.hasClass("whacked")){
-			return;
-		}
-		else {
-		virus.attr("src", virusWhackedImg.src)
-		.classList.remove("up")
-		.classList.add("whacked")
-		.one("transitionend", () => {
-				virus.attr("src", virusImgSrc);
-				virus.classList.remove("whacked");
-			});
-		score++;
-		scoreNum.innerText = score;
-		}
-	})
-}
+
+virus.addEventListener("click", () => {
+	if(virus.classList.contains("whacked")){
+		return;
+	}
+	else {
+	virus.setAttribute("src", virusWhackedImg)
+	virus.classList.remove("up")
+	virus.classList.add("whacked")
+	score++;
+	scoreNum.innerText = score;
+	}
+})
 
 function randomTime(min, max) {
 	return Math.round(Math.random() * (max - min) + min);
