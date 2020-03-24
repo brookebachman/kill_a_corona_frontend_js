@@ -1,5 +1,5 @@
 const startButton = document.getElementById("btn-start");
-const viruses = document.getElementsByClassName(".virus-pic")
+const viruses = document.getElementsByClassName("virus-pic")
 const scoreNum = document.getElementById("score-out");
 const numViruses = viruses.length;
 		
@@ -13,14 +13,15 @@ const minPeepTime = 1000;
 const maxPeepTime = 2000;
 
 // Game State Variables
-const prevVirusNumber = null;
-const timeUp = false;
+let prevVirusNumber = null;
+let timeUp = false;
 let score = 0;
-const gameTimer = null;
-const peepTimer = null;	
+let gameTimer = null;
+let peepTimer = null;	
+
 
 startButton.addEventListener("click", () => {
-	if(startButton.text() === "Start Game"){
+	if(startButton.innerText === "Start Game"){
 		init();
 	}
 	else{
@@ -29,23 +30,23 @@ startButton.addEventListener("click", () => {
 })
 	
 function init() {
-	scoreNum.text(score);
+	scoreNum.innerText = score;
 	timeUp = false;
 	prevVirusNumber = null;
-	startButton.text("Stop Game");
+	startButton.innerText = "Stop Game";
 	peep();
 	gameTimer = setTimeout(() => {
 		console.log("Game Over...");
-		startButton.text("Start Game");
+		startButton.innerText = "Start Game";
 		timeUp = true;
 	}, gameTime);		
 	}
 	
 function stop(){
 	console.log("Game Stopped...");
-	startButton.text("Start Game");
+	startButton.innerText = "Start Game";
 	timeUp = true;
-	viruses.removeClass("up");
+	viruses.classList.remove("up");
 	clearInterval(peepTimer);
 	clearInterval(gameTimer);
 }
@@ -53,9 +54,9 @@ function stop(){
 function peep(){
 	const time = randomTime(minPeepTime, maxPeepTime);
 	const virus = randomVirus(viruses);
-	virus.addClass("up");
+	virus.classList.add("up");
 	peepTimer = setTimeout(() => {
-		virus.removeClass("up");
+		virus.classList.remove("up");
 		if(timeUp === false){
 				peep();
 			} 
@@ -68,18 +69,17 @@ function whack(virus) {
 			return;
 		}
 		else {
-			whack();
-		}
-	}
-	virus.attr("src", virusWhackedImg.src)
-		.removeClass("up")
-		.addClass("whacked")
+		virus.attr("src", virusWhackedImg.src)
+		.classList.remove("up")
+		.classList.add("whacked")
 		.one("transitionend", () => {
 				virus.attr("src", virusImgSrc);
-				virus.removeClass("whacked");
+				virus.classList.remove("whacked");
 			});
-	score++;
-	scoreNum.text(score);
+		score++;
+		scoreNum.innerText = score;
+		}
+	})
 }
 
 function randomTime(min, max) {
@@ -88,11 +88,12 @@ function randomTime(min, max) {
 	
 function randomVirus(viruses) {
 	const virusNum = Math.floor(Math.random() * numViruses);
-	const virus = viruses.eq(virusNum);
+	const virus = viruses[virusNum];
 	if(virusNum === prevVirusNumber ) {
 		console.log("...same virus...try again...");
 		return randomVirus(viruses);
 	}
-		prevVirusNumber = virusNum;
-	return virus;
+	else {
+		return virus;
+	}
 }
