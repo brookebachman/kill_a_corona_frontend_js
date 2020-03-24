@@ -55,7 +55,17 @@ header .score-box {
 	margin-bottom: 0;
 	margin-top: 0;
 }
-
+.timer-num h2 {
+	margin-top: 0;
+	margin-bottom: 10px;
+	text-align: right;
+}
+.timer-num p {
+	font-size: 24px;
+	text-align: right;
+	margin-bottom: 0;
+	margin-top: 0;
+}
 .btn-start {
 	display: block;
 	margin: 30px auto;
