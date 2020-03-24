@@ -87,8 +87,6 @@ header .score-box {
 	left: 50px;
 	bottom: -85px;
     transition: bottom 0.5s ease;
-    border: 1px solid #ddd;
-    border-radius: 4px;
     padding: 5px;
     width: 150px;
 }
@@ -111,8 +109,6 @@ header .score-box {
 	bottom: 0;
 	left: 0;
     z-index: 9999;
-    border: 1px solid #ddd;
-    border-radius: 4px;
     padding: 5px;
     width: 150px;
 }
