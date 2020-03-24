@@ -7,7 +7,7 @@ const SCORES_URL = `${BASE_URL}/scores`
 document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.getElementById("btn-start")
     startButton.addEventListener("click", () => {
-       countdownTimer();
+       
        
     })
     

@@ -47,7 +47,7 @@ function init() {
 	decrementSeconds = setInterval(function(){
 		console.log("set interval is running")
 		seconds -= 1;
-		timerNumber.innerText = seconds + "seconds left!";
+		timerNumber.innerText = seconds + " seconds left!";
 	}, 1000)
 	
 	}
