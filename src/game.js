@@ -72,7 +72,8 @@ function popUp(){
 		}
 	})
 	popUpTimer = setTimeout(() => {
-		virus.classList.remove("up");
+		virus.classList.remove("up", "whacked");
+		virus.setAttribute("src", virusImg)
 		if(timeUp === false){
 				popUp();
 			} 
