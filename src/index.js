@@ -7,10 +7,9 @@ let seconds = 0;
 document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.getElementById("btn-start")
     startButton.addEventListener("click", () => {
-        fetchGame();
-        
+        gameTimer();
+       
     })
-    gameTimer();
     
 })
 
@@ -34,5 +33,5 @@ function fetchGame() {
         });
         
     })
-    startTimer()
+   
 }
