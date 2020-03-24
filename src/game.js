@@ -9,15 +9,14 @@ const virusWhackedImg = "assets/x.png";
 
 // Game Parameters
 const gameTime = 12000;
-const minPeepTime = 1000;
-const maxPeepTime = 2000;
+const minPopUpTime = 1000;
+const maxPopUpTime = 2000;
 
 // Game State Variables
-let prevVirusNumber = null;
 let timeUp = false;
 let score = 0;
 let gameTimer = null;
-let peepTimer = null;
+let popUpTimer = null;
 
 // Random virus
 let virus = randomVirus(viruses);
@@ -34,9 +33,8 @@ startButton.addEventListener("click", () => {
 function init() {
 	scoreNum.innerText = score;
 	timeUp = false;
-	prevVirusNumber = null;
 	startButton.innerText = "Stop Game";
-	peep();
+	popUp();
 	gameTimer = setTimeout(() => {
 		console.log("Game Over...");
 		startButton.innerText = "Start Game";
@@ -53,17 +51,18 @@ function stop(){
 		virus.classList.remove("up")
 	}
 	)
-	clearInterval(peepTimer);
+	clearInterval(popUpTimer);
 	clearInterval(gameTimer);
 }
 	
-function peep(){
-	const time = randomTime(minPeepTime, maxPeepTime);
+function popUp(){
+	const time = randomTime(minPopUpTime, maxPopUpTime);
+	let virus = randomVirus(viruses);
 	virus.classList.add("up");
-	peepTimer = setTimeout(() => {
+	popUpTimer = setTimeout(() => {
 		virus.classList.remove("up");
 		if(timeUp === false){
-				peep();
+				popUp();
 			} 
 	}, time);
 }
@@ -89,11 +88,5 @@ function randomTime(min, max) {
 function randomVirus(viruses) {
 	const virusNum = Math.floor(Math.random() * numViruses);
 	const virus = viruses[virusNum];
-	if(virusNum === prevVirusNumber ) {
-		console.log("...same virus...try again...");
-		return randomVirus(viruses);
-	}
-	else {
-		return virus;
-	}
+	return virus;
 }
