@@ -59,6 +59,18 @@ function popUp(){
 	const time = randomTime(minPopUpTime, maxPopUpTime);
 	let virus = randomVirus(viruses);
 	virus.classList.add("up");
+	virus.addEventListener("click", () => {
+		if(virus.classList.contains("whacked")){
+			return;
+		}
+		else {
+		virus.setAttribute("src", virusWhackedImg)
+		virus.classList.remove("up")
+		virus.classList.add("whacked")
+		score++;
+		scoreNum.innerText = score;
+		}
+	})
 	popUpTimer = setTimeout(() => {
 		virus.classList.remove("up");
 		if(timeUp === false){
@@ -66,20 +78,6 @@ function popUp(){
 			} 
 	}, time);
 }
-	
-
-virus.addEventListener("click", () => {
-	if(virus.classList.contains("whacked")){
-		return;
-	}
-	else {
-	virus.setAttribute("src", virusWhackedImg)
-	virus.classList.remove("up")
-	virus.classList.add("whacked")
-	score++;
-	scoreNum.innerText = score;
-	}
-})
 
 function randomTime(min, max) {
 	return Math.round(Math.random() * (max - min) + min);
