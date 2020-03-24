@@ -2,14 +2,16 @@ const BASE_URL = "http://localhost:3000"
 const USERS_URL = `${BASE_URL}/users`
 const GAMES_URL = `${BASE_URL}/games`
 const SCORES_URL = `${BASE_URL}/scores`
-second = 0;
+let seconds = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.getElementById("btn-start")
     startButton.addEventListener("click", () => {
-        fetchGame()
+        fetchGame();
+        
     })
     gameTimer();
+    
 })
 
 fetch(USERS_URL)
