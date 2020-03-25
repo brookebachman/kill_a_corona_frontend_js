@@ -50,7 +50,6 @@ header .timer-num {
 	border: 2px solid black;
 }
 
-
 .score-box h2 {
 	margin-top: 0;
 	margin-bottom: 10px;
@@ -84,6 +83,10 @@ header .timer-num {
 	margin: 30px auto;
 }
 
+/* #img {
+	background-color: white;
+} */
+
 .row:after {
 	content: '';
 	display: table;
@@ -106,7 +109,8 @@ header .timer-num {
 	bottom: -85px;
     transition: bottom 0.5s ease;
     padding: 5px;
-    width: 150px;
+	width: 150px;
+	background-color: transparent;
 }
 
 .virus-pic.up {
@@ -128,7 +132,7 @@ header .timer-num {
 	left: 0;
     z-index: 9999;
     padding: 5px;
-    width: 100px;
+	width: 100px;
 }
 
 .mask {
@@ -139,9 +143,4 @@ header .timer-num {
 	width: 100%;
 	background-color: white;
 	z-index: 5000;
-}
-
-footer {
-	margin-top: 60px;
-	text-align: center;
 }

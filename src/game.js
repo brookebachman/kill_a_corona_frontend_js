@@ -4,7 +4,7 @@ const numViruses = viruses.length;
 		
 // Images
 const virusImg = "assets/virus.png";
-const virusWhackedImg = "assets/x.png";
+const virusWhackedImg = "assets/clean.png";
 
 // Game Parameters
 const gameTime = 12000;
