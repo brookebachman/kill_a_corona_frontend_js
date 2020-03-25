@@ -4,6 +4,7 @@ const GAMES_URL = `${BASE_URL}/games`
 const SCORES_URL = `${BASE_URL}/scores`
 
 const loginButton = document.getElementById("login")
+const currentUserDiv = document.getElementById("current-user")
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,11 +28,11 @@ function findOrCreateUser(userNameInput) {
         body: JSON.stringify({name: userNameInput})
       })
         .then(resp => resp.json())
-        .then(userName => displayName(userName))
+        .then(user => displayName(user))
 }
 
-function displayName(userName) {
-    
+function displayName(user) {
+    currentUserDiv.innerHTML = `<p id="display-user">Welcome, ${user.name}</p>`
 }
 // fetch(USERS_URL)
 //     .then(resp => resp.json())
