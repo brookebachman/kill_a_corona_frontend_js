@@ -1,5 +1,5 @@
 const viruses = document.getElementsByClassName("virus-pic")
-const scoreNum = document.getElementById("score-out");
+const scoreNum = document.getElementById("score-num");
 const numViruses = viruses.length;
 		
 // Images

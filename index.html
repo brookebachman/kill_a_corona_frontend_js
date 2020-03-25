@@ -8,78 +8,78 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1>Whack-a-Virus</h1>
-        <div class="current-user" id="current-user">
-        </div>
-      </header>
-      <div id="login-form">
-        <form id="login">
-          <label for="user-name">Enter Username:</label><br>
-          <input type="text" id="user-name" name="name" autocomplete="off"><br>
-        </form>
-      </div>
       <main>
+        <header>
+          <h1>Whack-a-Virus</h1>
+          <div id="current-user">
+          </div>
+        </header>
+        <div id="login-form">
+          <form id="login">
+            <label for="user-name">Enter Username:</label><br>
+            <input type="text" id="user-name" name="name" autocomplete="off"><br>
+          </form>
+        </div>
         <div hidden class="start-div" id="start-div">
           <button class="btn-start" id="btn-start">Start Game</button>
         </div>
-        <div hidden class="game-container" id="game-container">
-          <div class="score-box" id="score-box">
-            <h2>Score</h2>
-            <p class="score-out" id="score-out">0</p>
-          </div>
-          <!-- end score-box -->
-          <div class="timer-num">
-            <h2>Timer</h2>
-            <p class="timer-num" id="timer-num">0</p>
-          </div>
-          <!-- end timer-num -->
-          <div class="row">
-            <div class="box">
-              <img src="./assets/virus.png" alt="virus" class="virus-pic"
-              id="virus-02">
-              <img src="./assets/cough.png" alt="cough" class="cough-pic">
-              <div class="mask"></div>
-              <!-- end mask -->
-            </div>
-            <!-- end box -->
-            <div class="box">
-              <img src="./assets/virus.png" alt="virus" class="virus-pic"
-              id="virus-02">
-              <img src="./assets/cough.png" alt="cough" class="cough-pic">
-              <div class="mask"></div>
-              <!-- end mask -->
-            </div>
-            <!-- end box -->
-            <div class="box">
-              <img src="./assets/virus.png" alt="virus" class="virus-pic"
-              id="virus-03">
-              <img src="./assets/cough.png" alt="cough" class="cough-pic">
-              <div class="mask"></div>
-              <!-- end mask -->
-            </div>
-            <!-- end box -->
-          </div>
-          <!-- end row -->
-          <div class="row">
-            <div class="box">
-              <img src="./assets/virus.png" alt="virus" class="virus-pic" id="virus-04">
-              <img src="./assets/cough.png" alt="cough" class="cough-pic">
-              <div class="mask"></div><!-- end mask -->
-            </div><!-- end box -->
-            <div class="box">
-              <img src="./assets/virus.png" alt="virus" class="virus-pic" id="virus-05">
-              <img src="./assets/cough.png" alt="cough" class="cough-pic">
-              <div class="mask"></div><!-- end mask -->
-            </div><!-- end box -->
-            <div class="box">
-              <img src="./assets/virus.png" alt="virus" class="virus-pic" id="virus-06">
-              <img src="./assets/cough.png" alt="cough" class="cough-pic">
-              <div class="mask"></div><!-- end mask -->
-            </div><!-- end box -->
-          </div><!-- end row -->
-        </div><!-- end game-container -->
       </main>
+      <div hidden class="game-container" id="game-container">
+        <div class="counters" id="score-box">
+          <h2>Score</h2>
+          <p id="score-num">0</p>
+        </div>
+        <!-- end score-box -->
+        <div class="counters" id="timer-box">
+          <h2>Timer</h2>
+          <p id="timer-num">0</p>
+        </div>
+        <!-- end timer-num -->
+        <div class="row">
+          <div class="box">
+            <img src="./assets/virus.png" alt="virus" class="virus-pic"
+            id="virus-02">
+            <img src="./assets/cough.png" alt="cough" class="cough-pic">
+            <div class="mask"></div>
+            <!-- end mask -->
+          </div>
+          <!-- end box -->
+          <div class="box">
+            <img src="./assets/virus.png" alt="virus" class="virus-pic"
+            id="virus-02">
+            <img src="./assets/cough.png" alt="cough" class="cough-pic">
+            <div class="mask"></div>
+            <!-- end mask -->
+          </div>
+          <!-- end box -->
+          <div class="box">
+            <img src="./assets/virus.png" alt="virus" class="virus-pic"
+            id="virus-03">
+            <img src="./assets/cough.png" alt="cough" class="cough-pic">
+            <div class="mask"></div>
+            <!-- end mask -->
+          </div>
+          <!-- end box -->
+        </div>
+        <!-- end row -->
+        <div class="row">
+          <div class="box">
+            <img src="./assets/virus.png" alt="virus" class="virus-pic" id="virus-04">
+            <img src="./assets/cough.png" alt="cough" class="cough-pic">
+            <div class="mask"></div><!-- end mask -->
+          </div><!-- end box -->
+          <div class="box">
+            <img src="./assets/virus.png" alt="virus" class="virus-pic" id="virus-05">
+            <img src="./assets/cough.png" alt="cough" class="cough-pic">
+            <div class="mask"></div><!-- end mask -->
+          </div><!-- end box -->
+          <div class="box">
+            <img src="./assets/virus.png" alt="virus" class="virus-pic" id="virus-06">
+            <img src="./assets/cough.png" alt="cough" class="cough-pic">
+            <div class="mask"></div><!-- end mask -->
+          </div><!-- end box -->
+        </div><!-- end row -->
+      </div><!-- end game-container -->
     </div><!-- end wrapper -->
     <script src="./src/index.js"></script>
     <script src="./src/login.js"></script>
