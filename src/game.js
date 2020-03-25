@@ -22,15 +22,6 @@ let seconds = 12;
 
 // Random virus
 let virus = randomVirus(viruses);
-
-startButton.addEventListener("click", () => {
-	if(startButton.innerText === "Start Game"){
-		init();
-	}
-	else{
-		stop();
-	}
-})
 	
 function init() {
 	

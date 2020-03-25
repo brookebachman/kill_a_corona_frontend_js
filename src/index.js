@@ -7,11 +7,10 @@ const loginButton = document.getElementById("login")
 const currentUserDiv = document.getElementById("current-user")
 
 const startButton = document.getElementById("btn-start");
+const startDiv = document.getElementById("start-div");
 const gameContainer = document.getElementById("game-container");
 
 document.addEventListener("DOMContentLoaded", () => {
-    startButton.style.display === "none"
-    gameContainer.style.display === "none"
 })
 
 loginButton.addEventListener("submit", (e) => {
@@ -36,15 +35,22 @@ function findOrCreateUser(userNameInput) {
 
 function displayName(user) {
     currentUserDiv.innerHTML = `<p id="display-user">Welcome, ${user.name}</p>`
+    displayStartButton();
 }
 
-function displayButton() {
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+function displayStartButton() {
+      startDiv.removeAttribute("hidden")
   }
+
+startButton.addEventListener("click", () => {
+	if(startButton.innerText === "Start Game"){
+        gameContainer.removeAttribute("hidden");
+		init();
+	}
+	else{
+		stop();
+	}
+})
 // fetch(USERS_URL)
 //     .then(resp => resp.json())
 //     .then(users => {
