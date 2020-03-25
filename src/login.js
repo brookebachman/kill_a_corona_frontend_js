@@ -15,13 +15,20 @@ function findOrCreateUser(userNameInput) {
         body: JSON.stringify({name: userNameInput})
       })
         .then(resp => resp.json())
-        .then(user => displayName(user))
-}
+        .then(function(user){
+            displayName(user);
+            updateScoreForPlayer(user);
+
+        });
+    }           
+           // user => displayName(user))
+
 
 function displayName(user) {
-    currentUserDiv.innerHTML = `<p id="display-user">Welcome, ${user.name}</p>`
+    currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}</p>`
     loginDiv.style.visibility = "hidden"
     startDiv.removeAttribute("hidden")
+   
   }
 
 startButton.addEventListener("click", () => {
