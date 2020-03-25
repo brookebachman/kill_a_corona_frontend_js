@@ -32,39 +32,10 @@ header h1 {
 	line-height: 94px;
 }
 
-#counters {
-	float: right;
+.counters {
 	width: 100px;
 	padding: 10px;
 	border: 2px solid black;
-}
-
-.score-box h2 {
-	margin-top: 0;
-	margin-bottom: 10px;
-	text-align: center;
-}
-
-.score-box p {
-	font-size: 24px;
-	text-align: center;
-	margin-bottom: 0;
-	margin-top: 0;
-}
-.timer-num h2 {
-	margin-top: 0;
-	margin-bottom: 10px;
-	text-align: right;
-}
-.timer-num p {
-	font-size: 24px;
-	text-align: right;
-	margin-bottom: 0;
-	margin-top: 0;
-}
-.btn-start {
-	display: block;
-	margin: 30px auto;
 }
 
 .game-container {
