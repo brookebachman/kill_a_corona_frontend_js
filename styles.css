@@ -83,10 +83,6 @@ header .timer-num {
 	margin: 30px auto;
 }
 
-/* #img {
-	background-color: white;
-} */
-
 .row:after {
 	content: '';
 	display: table;
