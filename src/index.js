@@ -3,7 +3,8 @@ const USERS_URL = `${BASE_URL}/users`
 const GAMES_URL = `${BASE_URL}/games`
 const SCORES_URL = `${BASE_URL}/scores`
 
-const loginButton = document.getElementById("login")
+const loginForm = document.getElementById("login")
+const loginDiv = document.getElementById("login-form")
 const currentUserDiv = document.getElementById("current-user")
 
 const startButton = document.getElementById("btn-start");
@@ -13,7 +14,7 @@ const gameContainer = document.getElementById("game-container");
 document.addEventListener("DOMContentLoaded", () => {
 })
 
-loginButton.addEventListener("submit", (e) => {
+loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let userNameInput = e.target.name.value;
     findOrCreateUser(userNameInput);
@@ -35,11 +36,8 @@ function findOrCreateUser(userNameInput) {
 
 function displayName(user) {
     currentUserDiv.innerHTML = `<p id="display-user">Welcome, ${user.name}</p>`
-    displayStartButton();
-}
-
-function displayStartButton() {
-      startDiv.removeAttribute("hidden")
+    loginDiv.style.visibility = "hidden"
+    startDiv.removeAttribute("hidden")
   }
 
 startButton.addEventListener("click", () => {
