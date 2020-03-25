@@ -8,12 +8,12 @@
   </head>
   <body>
     <div class="wrapper">
+      <header>
+        <h1>Whack-a-Virus</h1>
+        <div id="current-user">
+        </div>
+      </header>
       <main>
-        <header>
-          <h1>Whack-a-Virus</h1>
-          <div id="current-user">
-          </div>
-        </header>
         <div id="login-form">
           <form id="login">
             <label for="user-name">Enter Username:</label><br>
@@ -25,16 +25,18 @@
         </div>
       </main>
       <div hidden class="game-container" id="game-container">
-        <div class="counters" id="score-box">
-          <h2>Score</h2>
-          <p id="score-num">0</p>
+        <div id="counters-container">
+          <div class="counters" id="score-box">
+            <h2>Score</h2>
+            <p id="score-num">0</p>
+          </div>
+          <!-- end score-box -->
+          <div class="counters" id="timer-box">
+            <h2>Timer</h2>
+            <p id="timer-num">0</p>
+          </div>
         </div>
-        <!-- end score-box -->
-        <div class="counters" id="timer-box">
-          <h2>Timer</h2>
-          <p id="timer-num">0</p>
-        </div>
-        <!-- end timer-num -->
+          <!-- end timer-num -->
         <div class="row">
           <div class="box">
             <img src="./assets/virus.png" alt="virus" class="virus-pic"

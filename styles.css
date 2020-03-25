@@ -20,15 +20,22 @@ main {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	flex-direction: row;
 }
 
 
 /* Timer and Score */
+#counters-container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
 
 .counters {
-	width: 100px;
-	padding: 10px;
-	border: 2px solid black;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
 }
 
 /* Game Container */
