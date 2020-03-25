@@ -6,9 +6,12 @@ const SCORES_URL = `${BASE_URL}/scores`
 const loginButton = document.getElementById("login")
 const currentUserDiv = document.getElementById("current-user")
 
+const startButton = document.getElementById("btn-start");
+const gameContainer = document.getElementById("game-container");
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("dom loaded")
+    startButton.style.display === "none"
+    gameContainer.style.display === "none"
 })
 
 loginButton.addEventListener("submit", (e) => {
@@ -34,6 +37,14 @@ function findOrCreateUser(userNameInput) {
 function displayName(user) {
     currentUserDiv.innerHTML = `<p id="display-user">Welcome, ${user.name}</p>`
 }
+
+function displayButton() {
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
 // fetch(USERS_URL)
 //     .then(resp => resp.json())
 //     .then(users => {

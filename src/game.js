@@ -1,4 +1,3 @@
-const startButton = document.getElementById("btn-start");
 const viruses = document.getElementsByClassName("virus-pic")
 const scoreNum = document.getElementById("score-out");
 const numViruses = viruses.length;
