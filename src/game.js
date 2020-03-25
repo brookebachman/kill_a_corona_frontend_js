@@ -1,3 +1,4 @@
+// Elements
 const viruses = document.getElementsByClassName("virus-pic")
 const scoreNum = document.getElementById("score-num");
 const numViruses = viruses.length;
@@ -6,13 +7,13 @@ const numViruses = viruses.length;
 const virusImg = "assets/virus.png";
 const virusWhackedImg = "assets/clean.png";
 
-// Game Parameters
+// Times
 const gameTime = 12000;
 const minPopUpTime = 1000;
 const maxPopUpTime = 2000;
 const timerNumber = document.getElementById("timer-num");
 
-// Game State Variables
+// Variables
 let timeUp = false;
 let score = 0;
 let gameTimer = null;
@@ -22,16 +23,17 @@ let seconds = gameTime/1000;
 
 // Random virus
 let virus = randomVirus(viruses);
-	
+
+//Functions
+
 function init() {
-	
 	scoreNum.innerText = score;
 	timeUp = false;
 	startButton.innerText = "Stop Game";
 	popUp();
 	gameTimer = setTimeout(() => {
 		console.log("Game Over...");
-		startButton.innerText = "Start Game";
+		startButton.innerText = "New Game";
 		timeUp = true;
 	}, gameTime);		
 	decrementSeconds = setInterval(function(){
