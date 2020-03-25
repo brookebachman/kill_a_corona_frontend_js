@@ -5,20 +5,23 @@
     <title>Whack-a-Virus</title>
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body id="user-list">
+  <body>
     <div class="wrapper">
-	
       <header>
         <h1>Whack-a-Virus</h1>
-        <div class="score-box" id="score-box">
-          <h2>Score</h2>
-          <p class="score-out" id="score-out">0</p>
-        </div><!-- end score-box -->
-        <div class="timer-num">
-        <h2>Timer</h2>
-        <p class="timer-num" id="timer-num">0</p>
-      </div><!-- end timer-num -->
       </header>
+      <form id="login">
+        <label for="user-name">Enter Username:</label><br>
+        <input type="text" id="user-name" name="name"><br>
+      </form>
+      <div class="score-box" id="score-box">
+        <h2>Score</h2>
+        <p class="score-out" id="score-out">0</p>
+      </div><!-- end score-box -->
+      <div class="timer-num">
+      <h2>Timer</h2>
+      <p class="timer-num" id="timer-num">0</p>
+    </div><!-- end timer-num -->
       <main>
         <button class="btn-start" id="btn-start">Start Game</button>
         <div class="game-container">
