@@ -2,6 +2,7 @@
 const viruses = document.getElementsByClassName("virus-pic")
 const scoreNum = document.getElementById("score-num");
 const timerNumber = document.getElementById("timer-num");
+const counterContainer = document.getElementById("counters-container");
 		
 // Images
 const virusImg = "assets/virus.png";
@@ -27,6 +28,7 @@ let virus = randomVirus(viruses);
 // Event Listeners
 
 startButton.addEventListener("click", () => {
+	gameContainer.style.visibility = "visible";
 	init();
 	startButton.style.visibility = "hidden"
 	}
@@ -61,8 +63,7 @@ endButton.addEventListener("click", () => {
 	startButton.style.visibility = "hidden"
 	endButton.style.visibility = "hidden"
 	pauseButton.style.visibility = "hidden"
-	timerNumber.innerText = "Game over!"
-	scoreNum.innerText = `Final score: ${score}`
+	gameOver();
 })
 
 // Start
@@ -116,8 +117,7 @@ function decrementSecondsFn() {
 		timerNumber.innerText = seconds + " seconds left!";
 	}
 	else {
-		timerNumber.innerText = `Game over!`
-		scoreNum.innerText = `Final score: ${score}`
+		gameOver();
 	}
 }
 
@@ -130,6 +130,15 @@ function stop(){
 	clearInterval(popUpTimer);
 	clearTimeout(gameTimer);
 	clearInterval(decrementSeconds);
+}
+
+// Game over
+function gameOver() {
+	timerNumber.innerText = `Game over!`
+	scoreNum.innerText = `Final score: ${score}`
+	let saveBtn = document.createElement("button")
+	saveBtn.innerText = "Save Score!"
+	counterContainer.append(saveBtn)
 }
 
 // Random Selectors

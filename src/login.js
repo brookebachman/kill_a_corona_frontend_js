@@ -32,5 +32,4 @@ function displayName(user) {
     currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}</p>`
     loginDiv.style.visibility = "hidden";
     startButton.style.visibility = "visible";
-    gameContainer.style.visibility = "visible";
   }
