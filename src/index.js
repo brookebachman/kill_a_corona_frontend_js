@@ -8,7 +8,11 @@ const SCORES_URL = `${BASE_URL}/scores`
 const gameContainer = document.getElementById("game-container");
 
 // Buttons
-const startButton = document.getElementById("btn-start");
+let startButton = document.createElement("button")
+startButton.className = "btn"
+startButton.id="btn-start"
+startButton.innerText = "Start Game"
+
 const pauseButton = document.getElementById("btn-pause");
 const endButton = document.getElementById("btn-end");
 const newButton = document.getElementById("btn-new");
@@ -16,7 +20,6 @@ const newButton = document.getElementById("btn-new");
 // Visibility
 document.addEventListener("DOMContentLoaded", () => {
     makeHidden(gameContainer);
-    makeHidden(startButton);
     makeHidden(pauseButton);
     makeHidden(endButton);
     makeHidden(newButton);

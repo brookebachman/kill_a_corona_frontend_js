@@ -1,6 +1,7 @@
 // Login Elements
 const loginForm = document.getElementById("login")
 const currentUserDiv = document.getElementById("current-user")
+const main = document.querySelector("main")
 
 login.addEventListener("submit", (e) => {
   login.style.visibility = "hidden";
@@ -29,17 +30,17 @@ function findOrCreateUser(userNameInput) {
 
 function displayName(user) {
   currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}!</p>`;
-  showStartButton();
+  main.appendChild(startButton)
 }
 
-var startDelay;
+// var startDelay;
 
-function showStartButton() {
-  startDelay = setTimeout(delayFunc, 1000);
-}
+// function showStartButton() {
+//   startDelay = setTimeout(delayFunc, 1000);
+// }
 
-function delayFunc() {
-  makeVisible(startButton);
-}
+// function delayFunc() {
+//   makeVisible(startButton);
+// }
 
 // User name is displayed, then game.js for start button event listener
