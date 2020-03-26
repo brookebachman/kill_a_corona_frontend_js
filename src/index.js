@@ -14,8 +14,18 @@ const endButton = document.getElementById("btn-end");
 const newButton = document.getElementById("btn-new");
 
 // Visibility
-gameContainer.style.visibility = "hidden";
-startButton.style.visibility = "hidden";
-pauseButton.style.visibility = "hidden";
-endButton.style.visibility = "hidden";
-newButton.style.visibility = "hidden";
+document.addEventListener("DOMContentLoaded", () => {
+    makeHidden(gameContainer);
+    makeHidden(startButton);
+    makeHidden(pauseButton);
+    makeHidden(endButton);
+    makeHidden(newButton);
+})
+
+function makeVisible(element) {
+    element.style.visibility = "visible"
+}
+
+function makeHidden(element) {
+    element.style.visibility = "hidden"
+}

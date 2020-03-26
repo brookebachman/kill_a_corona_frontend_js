@@ -1,13 +1,13 @@
 // Login Elements
 const loginForm = document.getElementById("login")
-const loginDiv = document.getElementById("login-form")
 const currentUserDiv = document.getElementById("current-user")
 
-loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let userNameInput = e.target.name.value;
-    findOrCreateUser(userNameInput);
-    e.target.reset();
+login.addEventListener("submit", (e) => {
+  login.style.visibility = "hidden";
+  e.preventDefault();
+  let userNameInput = e.target.name.value;
+  findOrCreateUser(userNameInput);
+  e.target.reset();
 })
 
 function findOrCreateUser(userNameInput) {
@@ -23,14 +23,23 @@ function findOrCreateUser(userNameInput) {
         .then(function(user){
             displayName(user);
             const name = document.getElementById("current-user")
-            name.setAttribute('data-id' , user.id); 
-        });
-  }           
+            name.setAttribute('data-id' , user.id);
+        })
+  }    
 
 function displayName(user) {
-    currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}!</p>`
-    loginDiv.style.visibility = "hidden";
-    startButton.style.visibility = "visible";
-  }
+  currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}!</p>`;
+  showStartButton();
+}
+
+var startDelay;
+
+function showStartButton() {
+  startDelay = setTimeout(delayFunc, 1000);
+}
+
+function delayFunc() {
+  makeVisible(startButton);
+}
 
 // User name is displayed, then game.js for start button event listener
