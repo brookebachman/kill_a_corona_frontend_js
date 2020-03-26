@@ -1,3 +1,8 @@
+// Login Elements
+const loginForm = document.getElementById("login")
+const loginDiv = document.getElementById("login-form")
+const currentUserDiv = document.getElementById("current-user")
+
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let userNameInput = e.target.name.value;
@@ -18,25 +23,14 @@ function findOrCreateUser(userNameInput) {
         .then(function(user){
             displayName(user);
             updateScoreForPlayer(user);
-
         });
     }           
-           // user => displayName(user))
+          // user => displayName(user))
 
 
 function displayName(user) {
     currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}</p>`
-    loginDiv.style.visibility = "hidden"
-    startDiv.removeAttribute("hidden")
-   
+    loginDiv.style.visibility = "hidden";
+    startButton.style.visibility = "visible";
+    gameContainer.style.visibility = "visible";
   }
-
-startButton.addEventListener("click", () => {
-	if(startButton.innerText === "Start Game"){
-        gameContainer.removeAttribute("hidden");
-		init();
-	}
-	else{
-		stop();
-	}
-})
