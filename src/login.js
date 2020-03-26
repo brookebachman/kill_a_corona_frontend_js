@@ -17,7 +17,8 @@ function findOrCreateUser(userNameInput) {
         .then(resp => resp.json())
         .then(function(user){
             displayName(user);
-            updateScoreForPlayer(user);
+            const name = document.getElementById("current-user")
+            name.setAttribute('data-id' , user.id); 
 
         });
     }           
@@ -31,12 +32,23 @@ function displayName(user) {
    
   }
 
-startButton.addEventListener("click", () => {
+startButton.addEventListener("click", (event) => {
 	if(startButton.innerText === "Start Game"){
         gameContainer.removeAttribute("hidden");
-		init();
+        init();
+       
 	}
 	else{
-		stop();
+        saveScore.innerText = "Save Score"
+        startButtonDiv.appendChild(saveScore)
+        saveScore.addEventListener("click", function(event){
+            updateScoreForPlayer(event);
+        })
+        stop();
+        
+        
+
+        
 	}
 })
+

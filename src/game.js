@@ -1,7 +1,8 @@
 const viruses = document.getElementsByClassName("virus-pic")
 const scoreNum = document.getElementById("score-num");
 const numViruses = viruses.length;
-		
+const saveScore = document.createElement("button")
+const startButtonDiv = document.getElementById("save-score")
 // Images
 const virusImg = "assets/virus.png";
 const virusWhackedImg = "assets/clean.png";
@@ -24,7 +25,6 @@ let seconds = gameTime/1000;
 let virus = randomVirus(viruses);
 	
 function init() {
-	
 	scoreNum.innerText = score;
 	timeUp = false;
 	startButton.innerText = "Stop Game";
@@ -42,6 +42,11 @@ function init() {
 		}
 		else {
 			timerNumber.innerText = `Time's up! Your score is ${score}`
+			saveScore.innerText = "Save Score"
+			startButtonDiv.appendChild(saveScore)
+			saveScore.addEventListener("click", function(event){
+				updateScoreForPlayer(event);
+			})
 		}
 	}, 1000)
 	}
@@ -54,6 +59,7 @@ function stop(){
 	clearInterval(popUpTimer);
 	clearInterval(gameTimer);
 	clearInterval(decrementSeconds);
+
 }
 	
 function popUp(){
