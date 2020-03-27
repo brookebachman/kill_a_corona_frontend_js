@@ -1,14 +1,12 @@
 // Elements
 const scoreNum = document.getElementById("score-num");
-
-const saveScore = document.createElement("button")
-const startButtonDiv = document.getElementById("save-score")
-const level2Div = document.getElementById("level-2")
-const level2Button = document.createElement("button")
-const saveScoreBtn = document.createElement("button")
 const timerNumber = document.getElementById("timer-num");
 const counterContainer = document.getElementById("counters-container");
 const buttonsDiv = document.getElementById("game-buttons")
+
+// Create Elements
+const level2Button = document.createElement("button")
+const saveScoreBtn = document.createElement("button")
 
 // Visibility
 saveScoreBtn.innerText = "Save Score";
@@ -20,8 +18,8 @@ const virusImg = "assets/virus.png";
 const virusWhackedImg = "assets/clean.png";
 
 // Game Parameters
-const gameTime = 12000;
-let minPopUpTime = 1050;
+const gameDuration = 12000;
+const minPopUpTime = 1000;
 const maxPopUpTime = 2000;
 
 // Variables
@@ -30,7 +28,6 @@ let score = 0;
 let gameTimer = null;
 let popUpTimer = null;
 let decrementSeconds = null;
-let gameDuration = 1000;
 let seconds = gameDuration/1000;
 
 // Random virus
@@ -90,47 +87,21 @@ function init() {
 	popUp();
 	scoreNum.innerText = score;
 	timeUp = false;
-	startButton.innerText = "Stop Game";
-	popUp();
 	gameTimer = setTimeout(() => {
-		console.log("Game Over...");
-		startButton.innerText = "Start Game";
+		console.log("game timer end");
 		timeUp = true;
-	}, gameTime);		
-	decrementSeconds = setInterval(function(){
+	}, gameDuration);		
+	decrementSeconds = setInterval(() => {
 		if (seconds > 0) {
-			console.log("set interval is running")
+			console.log("timer running")
 			seconds -= 1;
 			timerNumber.innerText = seconds + " seconds left!";
 		}
 		else {
 			timerNumber.innerText = `Time's up! Your score is ${score}`
-			saveScore.innerText = "Save Score"
-			saveScore.addEventListener("click", function(){
-					updateScoreForPlayer();
-				
-			})
-			if (score > 6){
-				level2Button.innerText = "Play Level 2"
-				buttonsDiv.appendChild(level2Button)
-				level2Button.addEventListener("click", function(){
-					startLevel2();
-				})
 			}
-		}
-	}, 1000)
+		}, 1000)
 	}
-	
-function stop(){
-	console.log("Game Stopped...");
-	startButton.innerText = "Start Game";
-	timeUp = true;
-	Array.prototype.map.call(viruses, virus => virus.classList.remove("up"))
-	clearInterval(popUpTimer);
-	clearInterval(gameTimer);
-	clearInterval(decrementSeconds);
-
-}
 
 // Viruses Appear
 function popUp(){
@@ -171,7 +142,6 @@ function stop(){
 // Timer Functions
 
 function gameTimerFn() {
-	console.log("Game Over...");
 	timeUp = true;
 }
 
