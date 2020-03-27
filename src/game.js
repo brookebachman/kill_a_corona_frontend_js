@@ -4,6 +4,11 @@ const saveScoreBtn = document.createElement("button")
 const timerNumber = document.getElementById("timer-num");
 const counterContainer = document.getElementById("counters-container");
 const buttonsDiv = document.getElementById("game-buttons")
+
+// Visibility
+saveScoreBtn.innerText = "Save Score";
+buttonsDiv.appendChild(saveScoreBtn);
+noDisplay(saveScoreBtn);
 		
 // Images
 const virusImg = "assets/virus.png";
@@ -144,8 +149,7 @@ function gameOver() {
 	noDisplay(endButton);
 	timerNumber.innerText = `Game over!`
 	scoreNum.innerText = `Final score: ${score}`
-	saveScoreBtn.innerText = "Save Score"
-	buttonsDiv.appendChild(saveScoreBtn);
+	setDisplay(saveScoreBtn);
 }
 
 saveScoreBtn.addEventListener("click", function(event){
