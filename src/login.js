@@ -1,13 +1,14 @@
 // Login Elements
 const loginForm = document.getElementById("login")
-const loginDiv = document.getElementById("login-form")
-const currentUserDiv = document.getElementById("current-user")
+const welcomeDiv = document.getElementById("welcome")
+const greeting = document.getElementById("welcome-user")
 
-loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let userNameInput = e.target.name.value;
-    findOrCreateUser(userNameInput);
-    e.target.reset();
+login.addEventListener("submit", (e) => {
+  noDisplay(login);
+  e.preventDefault();
+  let userNameInput = e.target.name.value;
+  findOrCreateUser(userNameInput);
+  e.target.reset();
 })
 
 function findOrCreateUser(userNameInput) {
@@ -22,15 +23,12 @@ function findOrCreateUser(userNameInput) {
         .then(resp => resp.json())
         .then(function(user){
             displayName(user);
-            const name = document.getElementById("current-user")
-            name.setAttribute('data-id' , user.id); 
-        });
-  }           
+            gameContainer.setAttribute('data-id' , user.id);
+        })
+  }    
 
 function displayName(user) {
-    currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}!</p>`
-    loginDiv.style.visibility = "hidden";
-    startButton.style.visibility = "visible";
-  }
-
-// User name is displayed, then game.js for start button event listener
+  let userName = user.name
+  greeting.innerText = `Welcome, ${userName}!`
+  welcomeDiv.appendChild(startButton);
+}

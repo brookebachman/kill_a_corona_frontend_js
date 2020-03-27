@@ -1,12 +1,7 @@
-//need to set seconds back to 0.
-//reset score and anything that is temporary side effect
-
 //EVENT LISTENER ON "SAVE SCORE BUTTON "
 //need to get the user's id
-function updateScoreForPlayer(){
-  let gameId = 1;
-  const name = document.getElementById("current-user");
-  let userId = name.dataset.id
+function updateScoreForPlayer(event){
+  let userId = gameContainer.dataset.id
   let dataHash = {
   value: score,
   game_id: gameId,
@@ -25,6 +20,9 @@ function updateScoreForPlayer(){
   .then(resp => resp.json())
   .then(function(data){
     console.log("your score was sent!", data)
+  })
+  saveScoreBtn.innerText = "Score saved!"
+}   
   }) 
  
 }

@@ -8,14 +8,36 @@ const SCORES_URL = `${BASE_URL}/scores`
 const gameContainer = document.getElementById("game-container");
 
 // Buttons
-const startButton = document.getElementById("btn-start");
-const pauseButton = document.getElementById("btn-pause");
-const endButton = document.getElementById("btn-end");
-const newButton = document.getElementById("btn-new");
+let startButton = document.createElement("button")
+startButton.className = "btn"
+startButton.id="btn-start"
+startButton.innerText = "Start Game"
 
-// Visibility
-gameContainer.style.visibility = "hidden";
-startButton.style.visibility = "hidden";
-pauseButton.style.visibility = "hidden";
-endButton.style.visibility = "hidden";
-newButton.style.visibility = "hidden";
+let pauseButton = document.createElement("button")
+pauseButton.className = "btn"
+pauseButton.id="btn-pause"
+pauseButton.innerText = "Pause Game"
+
+let endButton = document.createElement("button")
+endButton.className = "btn"
+endButton.id="btn-end"
+endButton.innerText = "End Game"
+
+let newButton = document.createElement("button")
+newButton.className = "btn"
+newButton.id="btn-new"
+newButton.innerText = "New Game"
+
+// DOM loads, set game container hidden
+document.addEventListener("DOMContentLoaded", () => {
+    noDisplay(gameContainer);
+})
+
+// Display Toggle
+function setDisplay(element) {
+    element.removeAttribute("style")
+}
+
+function noDisplay(element) {
+    element.style.display = "none"
+}

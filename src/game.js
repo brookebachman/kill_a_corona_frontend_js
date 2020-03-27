@@ -8,6 +8,12 @@ const level2Button = document.createElement("button")
 const saveScoreBtn = document.createElement("button")
 const timerNumber = document.getElementById("timer-num");
 const counterContainer = document.getElementById("counters-container");
+const buttonsDiv = document.getElementById("game-buttons")
+
+// Visibility
+saveScoreBtn.innerText = "Save Score";
+buttonsDiv.appendChild(saveScoreBtn);
+noDisplay(saveScoreBtn);
 		
 // Images
 const virusImg = "assets/virus.png";
@@ -34,9 +40,12 @@ let virus = randomVirus(viruses);
 
 // Event Listeners
 startButton.addEventListener("click", () => {
-	gameContainer.style.visibility = "visible";
+	welcomeDiv.remove();
+	setDisplay(gameContainer);
 	init();
-	startButton.style.visibility = "hidden"
+	buttonsDiv.appendChild(pauseButton)
+	buttonsDiv.appendChild(endButton)
+	buttonsDiv.appendChild(newButton)
 	}
 )
 
@@ -58,7 +67,7 @@ pauseButton.addEventListener("click", () => {
 newButton.addEventListener("click", () => {
 	stop();
 	score = 0;
-	timerNumber.innerText = "";
+	timerNumber.innerText = "Starting new game...";
 	seconds = gameDuration/1000;
 	init();
 	}
@@ -66,17 +75,17 @@ newButton.addEventListener("click", () => {
 
 endButton.addEventListener("click", () => {
 	stop();
-	startButton.style.visibility = "hidden"
-	endButton.style.visibility = "hidden"
-	pauseButton.style.visibility = "hidden"
 	gameOver();
+	setDisplay(saveScoreBtn);
 })
 
 // Start
 function init() {
-	pauseButton.style.visibility = "visible";
-	endButton.style.visibility = "visible";
-	newButton.style.visibility = "visible";
+	setDisplay(pauseButton);
+	setDisplay(endButton);
+	setDisplay(newButton);
+	noDisplay(saveScoreBtn);
+	// in case of press 'pause' then 'new'
 	pauseButton.innerText = "Pause Game";
 	popUp();
 	scoreNum.innerText = score;
@@ -152,7 +161,9 @@ function popUp(){
 function stop(){
 	console.log("Game Stopped...");
 	timeUp = true;
-	Array.prototype.map.call(viruses, virus => virus.classList.remove("up"))
+	Array.prototype.map.call(viruses, virus => {
+		virus.classList.remove("up", "whacked");
+		virus.src = virusImg;})
 	clearInterval(popUpTimer);
 	clearTimeout(gameTimer);
 	clearInterval(decrementSeconds);
@@ -178,10 +189,12 @@ function decrementSecondsFn() {
 
 // Game over
 function gameOver() {
+	stop();
+	noDisplay(pauseButton);
+	noDisplay(endButton);
 	timerNumber.innerText = `Game over!`
 	scoreNum.innerText = `Final score: ${score}`
-	saveScoreBtn.innerText = "Save Score"
-	counterContainer.appendChild(saveScoreBtn);
+	setDisplay(saveScoreBtn);
 }
 
 saveScoreBtn.addEventListener("click", function(event){
