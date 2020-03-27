@@ -7,7 +7,6 @@ body {
 	font-family: 'Baloo 2';
 	font-weight: 300;
 	background: #c7fad8;
-	margin: 0;
 }
 
 h1 {
@@ -29,7 +28,6 @@ h2 {
 	overflow-x: auto;
 	margin-left: 5%;
 	margin-right: 5%;
-	padding: 10px;
 }
 
 #welcome {
