@@ -12,27 +12,41 @@ body {
 	background: #c7fad8;
 }
 
-header {
+h1 {
     text-align: center;
     color: rgb(143, 109, 187);
     margin-top: 10px;
     margin-bottom: 2px;
 }
 
+h2 {
+	margin: auto;
+}
+
 .wrapper {
 	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 	width: 75%;
-	padding: 30px;
-	margin: 30px auto;
+	margin: auto;
 	border: 3px solid black;
 	background: #fce279;
 }
 
-main {
+#welcome {
 	display: flex;
-	justify-content: space-evenly;
 	align-items: center;
-	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	flex-direction: column;
+    width: 75%;
+    height: 75%;
+	margin: auto;
+	margin-top: 50%;
+    background-color: #f2ebf2;
+	box-shadow: 10px 5px #545354;
+	text-align: center;
+	padding: 10%;
 }
 
 .btn, button {
@@ -45,7 +59,7 @@ main {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	transition-duration: 0.4s;
+	margin: auto;
   }
 
 .btn:hover {

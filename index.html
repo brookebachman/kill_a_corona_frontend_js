@@ -7,19 +7,20 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">
   </head>
   <body>
-      <header>
-        <h1>Whack-a-Virus</h1>
-      </header>
-      <div class="wrapper">
-      <main>
+    <h1>Whack-a-Virus</h1>
+    <div class="wrapper">
+      <div id="welcome">
+        <h2>Welcome!</h2>
+        <h3>If you would like to play under an existing account, please enter the same username.</h3>
         <form id="login">
           <label for="user-name">Enter Username:</label><br>
           <input type="text" id="user-name" name="name" autocomplete="off"><br>
           <input class="btn" type="submit" value="Log In!">
         </form>
-        <div id="current-user" data-id="">
+        <div id="current-user">
         </div>
-      </main>
+    </div>
+      
       <div class="game-container" id="game-container">
         <div class="game-buttons" id="game-buttons">
         </div>
