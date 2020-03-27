@@ -1,6 +1,6 @@
 // Elements
 const scoreNum = document.getElementById("score-num");
-const numViruses = viruses.length;
+
 const saveScore = document.createElement("button")
 const startButtonDiv = document.getElementById("save-score")
 const level2Div = document.getElementById("level-2")
@@ -24,11 +24,12 @@ let score = 0;
 let gameTimer = null;
 let popUpTimer = null;
 let decrementSeconds = null;
+let gameDuration = 1000;
 let seconds = gameDuration/1000;
 
 // Random virus
 const viruses = document.getElementsByClassName("virus-pic")
-const numViruses = viruses.length;
+let numViruses = viruses.length;
 let virus = randomVirus(viruses);
 
 // Event Listeners
