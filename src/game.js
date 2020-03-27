@@ -56,7 +56,7 @@ pauseButton.addEventListener("click", () => {
 newButton.addEventListener("click", () => {
 	stop();
 	score = 0;
-	timerNumber.innerText = "";
+	timerNumber.innerText = "Starting new game...";
 	seconds = gameDuration/1000;
 	init();
 	}
@@ -65,6 +65,7 @@ newButton.addEventListener("click", () => {
 endButton.addEventListener("click", () => {
 	stop();
 	gameOver();
+	setDisplay(saveScoreBtn);
 })
 
 // Start
@@ -72,6 +73,7 @@ function init() {
 	setDisplay(pauseButton);
 	setDisplay(endButton);
 	setDisplay(newButton);
+	noDisplay(saveScoreBtn);
 	// in case of press 'pause' then 'new'
 	pauseButton.innerText = "Pause Game";
 	popUp();
