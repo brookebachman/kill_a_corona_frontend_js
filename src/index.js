@@ -13,16 +13,24 @@ startButton.className = "btn"
 startButton.id="btn-start"
 startButton.innerText = "Start Game"
 
-const pauseButton = document.getElementById("btn-pause");
-const endButton = document.getElementById("btn-end");
-const newButton = document.getElementById("btn-new");
+let pauseButton = document.createElement("button")
+pauseButton.className = "btn"
+pauseButton.id="btn-pause"
+pauseButton.innerText = "Pause Game"
+
+let endButton = document.createElement("button")
+endButton.className = "btn"
+endButton.id="btn-end"
+endButton.innerText = "End Game"
+
+let newButton = document.createElement("button")
+newButton.className = "btn"
+newButton.id="btn-new"
+newButton.innerText = "New Game"
 
 // Visibility
 document.addEventListener("DOMContentLoaded", () => {
     makeHidden(gameContainer);
-    makeHidden(pauseButton);
-    makeHidden(endButton);
-    makeHidden(newButton);
 })
 
 function makeVisible(element) {
