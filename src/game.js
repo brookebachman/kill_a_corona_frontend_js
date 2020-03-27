@@ -22,7 +22,7 @@ const virusImg = "assets/virus.png";
 const virusWhackedImg = "assets/clean.png";
 
 // Game Parameters
-const gameDuration = 12000;
+const gameDuration = 10000;
 const minPopUpTime = 1000;
 const maxPopUpTime = 2000;
 

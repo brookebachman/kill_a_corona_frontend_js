@@ -43,7 +43,8 @@ function init2() {
 }
 
 function popUp2(){
-	let minPopUpTime = 900;
+	let minPopUpTime = 800;
+	let maxPopUpTime = 1000;
 	let time = randomTime(minPopUpTime, maxPopUpTime);
 	let virus = randomVirus(viruses);
 	virus.classList.add("up");
