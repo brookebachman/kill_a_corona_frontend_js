@@ -2,6 +2,7 @@
 //need to get the user's id
 function updateScoreForPlayer(event){
   let userId = gameContainer.dataset.id
+  let gameId = 1;
   let dataHash = {
   value: score,
   game_id: gameId,
@@ -25,22 +26,25 @@ function updateScoreForPlayer(event){
 }   
 
  
-
-
 function startLevel2(){
   score = 0;
   game_id = 2;
   minPopUpTime = 870;
           init();
-    }
-            saveScore.addEventListener("click", function(event){
+          console.log("start Level 2")
+            setDisplay(saveScoreBtn);
+            saveScoreBtn.addEventListener("click", function(event){
               updateScoreForPlayer2(event);
           })
           stop();
+          setDisplay(saveScoreBtn);
+          saveScoreBtn.addEventListener("click", function(event){
+            updateScoreForPlayer2(event);
+        })
+  }
           
 function updateScoreForPlayer2(){
-  const name = document.getElementById("current-user");
-  let userId = name.dataset.id
+  let userId = gameContainer.dataset.id
   let dataHash = {
   value: score,
   game_id: 2,
