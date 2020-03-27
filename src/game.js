@@ -8,10 +8,14 @@ const buttonsDiv = document.getElementById("game-buttons")
 const level2Button = document.createElement("button")
 const saveScoreBtn = document.createElement("button")
 
-// Visibility
+// Visibility Save Score and Level 2
 saveScoreBtn.innerText = "Save Score";
 buttonsDiv.appendChild(saveScoreBtn);
 noDisplay(saveScoreBtn);
+
+level2Button.innerText = "Play Level 2";
+buttonsDiv.appendChild(level2Button);
+noDisplay(level2Button);
 		
 // Images
 const virusImg = "assets/virus.png";
@@ -90,6 +94,7 @@ function init() {
 	gameTimer = setTimeout(() => {
 		console.log("game timer end");
 		timeUp = true;
+		gameOver();
 	}, gameDuration);		
 	decrementSeconds = setInterval(() => {
 		if (seconds > 0) {
@@ -158,24 +163,23 @@ function decrementSecondsFn() {
 
 // Game over
 function gameOver() {
+	if (score > 1) {
+		setDisplay(level2Button);
+	}
 	stop();
 	noDisplay(pauseButton);
 	noDisplay(endButton);
 	timerNumber.innerText = `Game over!`
 	scoreNum.innerText = `Final score: ${score}`
 	setDisplay(saveScoreBtn);
-	if (score > 6){
-		setDisplay(level2Button);
-		level2Button.innerText = "Play Level 2"
-		buttonsDiv.appendChild(level2Button)
-		level2Button.addEventListener("click", function(){
-			startLevel2();
-		})
-	}
 }
 
 saveScoreBtn.addEventListener("click", function(event){
 	updateScoreForPlayer(event);
+})
+
+level2Button.addEventListener("click", function(){
+	startLevel2();
 })
 
 // Random Selectors
@@ -188,4 +192,3 @@ function randomVirus(viruses) {
 	const virus = viruses[virusNum];
 	return virus;
 }
-
