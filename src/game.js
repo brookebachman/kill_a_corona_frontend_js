@@ -21,7 +21,7 @@ const virusWhackedImg = "assets/clean.png";
 
 // Game Parameters
 const gameTime = 12000;
-let minPopUpTime = 1000;
+let minPopUpTime = 1050;
 const maxPopUpTime = 2000;
 
 // Variables
@@ -106,14 +106,13 @@ function init() {
 		else {
 			timerNumber.innerText = `Time's up! Your score is ${score}`
 			saveScore.innerText = "Save Score"
-			startButtonDiv.appendChild(saveScore)
 			saveScore.addEventListener("click", function(){
 					updateScoreForPlayer();
 				
 			})
 			if (score > 6){
 				level2Button.innerText = "Play Level 2"
-				level2Div.appendChild(level2Button)
+				buttonsDiv.appendChild(level2Button)
 				level2Button.addEventListener("click", function(){
 					startLevel2();
 				})
