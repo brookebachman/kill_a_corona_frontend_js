@@ -50,6 +50,7 @@ main {
 
 .all-boxes {
 	background: url(assets/yellow.png);
+	
 	width: 100%;
 	height: 100%;
 }
