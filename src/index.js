@@ -28,17 +28,16 @@ newButton.className = "btn"
 newButton.id="btn-new"
 newButton.innerText = "New Game"
 
-// Visibility
+// DOM loads, set game container hidden
 document.addEventListener("DOMContentLoaded", () => {
-    makeHidden(gameContainer);
+    noDisplay(gameContainer);
 })
 
-function makeVisible(element) {
-    // element.style.visibility = "visible"
-    element.style.display = "block"
+// Display Toggle
+function setDisplay(element) {
+    element.removeAttribute("style")
 }
 
-function makeHidden(element) {
-    // element.style.visibility = "hidden"
+function noDisplay(element) {
     element.style.display = "none"
 }

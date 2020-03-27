@@ -4,7 +4,7 @@ const welcomeDiv = document.getElementById("welcome")
 const greeting = document.getElementById("welcome-user")
 
 login.addEventListener("submit", (e) => {
-  makeHidden(login);
+  noDisplay(login);
   e.preventDefault();
   let userNameInput = e.target.name.value;
   findOrCreateUser(userNameInput);

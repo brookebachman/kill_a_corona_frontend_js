@@ -30,7 +30,7 @@ let virus = randomVirus(viruses);
 // Event Listeners
 startButton.addEventListener("click", () => {
 	welcomeDiv.remove();
-	makeVisible(gameContainer);
+	setDisplay(gameContainer);
 	init();
 	buttonsDiv.appendChild(pauseButton)
 	buttonsDiv.appendChild(endButton)
@@ -69,9 +69,9 @@ endButton.addEventListener("click", () => {
 
 // Start
 function init() {
-	makeVisible(pauseButton);
-	makeVisible(endButton);
-	makeVisible(newButton);
+	setDisplay(pauseButton);
+	setDisplay(endButton);
+	setDisplay(newButton);
 	pauseButton.innerText = "Pause Game";
 	popUp();
 	scoreNum.innerText = score;
@@ -112,8 +112,6 @@ function stop(){
 	clearInterval(popUpTimer);
 	clearTimeout(gameTimer);
 	clearInterval(decrementSeconds);
-	makeHidden(pauseButton);
-	makeHidden(endButton);
 }
 
 // Timer Functions
@@ -136,6 +134,8 @@ function decrementSecondsFn() {
 
 // Game over
 function gameOver() {
+	noDisplay(pauseButton);
+	noDisplay(endButton);
 	clearInterval(popUpTimer);
 	clearTimeout(gameTimer);
 	clearInterval(decrementSeconds);
