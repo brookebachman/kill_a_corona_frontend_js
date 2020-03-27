@@ -1,25 +1,37 @@
+// Create New Save Btn
+const saveScore2Btn = document.createElement("button")
+
+// 2nd Save Score Button - Hacky Solution
+saveScore2Btn.innerText = "Save Score Level 2";
+buttonsDiv.appendChild(saveScore2Btn);
+noDisplay(saveScore2Btn);
+
 function startLevel2(){
 	console.log("start Level 2")
+	// Reset Variables
+	timeUp = false;
+	score = 0;
+	seconds = gameDuration/1000;
 	init2();
 }
 
 function init2() {
-	setDisplay(pauseButton);
-	setDisplay(endButton);
 	noDisplay(saveScoreBtn);
-	score = 0;
+	noDisplay(saveScore2Btn);
+	noDisplay(level2Button);
 	// in case of press 'pause' then 'new'
 	pauseButton.innerText = "Pause Game";
 	popUp2();
 	scoreNum.innerText = score;
 	timeUp = false;
 	gameTimer = setTimeout(() => {
-		console.log("Game Over...");
+		console.log("Game 2 Over...");
 		timeUp = true;
+		gameOver2();
 	}, gameDuration);		
 	decrementSeconds = setInterval(function(){
 		if (seconds > 0) {
-			console.log("set interval is running")
+			console.log("interval 2 is running")
 			seconds -= 1;
 			timerNumber.innerText = seconds + " seconds left!";
 		}
@@ -47,10 +59,22 @@ function popUp2(){
 		virus.classList.remove("up", "whacked");
 		virus.src = virusImg;
 		if(timeUp === false){
-			popUp();
+			popUp2();
 		}
 	}, time);
 }
+
+function gameOver2() {
+	noDisplay(pauseButton);
+	noDisplay(endButton);
+	timerNumber.innerText = `Game over!`
+	scoreNum.innerText = `Final score: ${score}`
+	setDisplay(saveScore2Btn);
+}
+
+saveScore2Btn.addEventListener("click", (event) => {
+		updateScoreForPlayer2(event);
+})
 		
 function updateScoreForPlayer2(){
 let userId = gameContainer.dataset.id

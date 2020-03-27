@@ -86,6 +86,7 @@ function init() {
 	setDisplay(endButton);
 	setDisplay(newButton);
 	noDisplay(saveScoreBtn);
+	noDisplay(saveScore2Btn);
 	// in case of press 'pause' then 'new'
 	pauseButton.innerText = "Pause Game";
 	popUp();
