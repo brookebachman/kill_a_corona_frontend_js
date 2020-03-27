@@ -144,7 +144,7 @@ function gameOver() {
 	timerNumber.innerText = `Game over!`
 	scoreNum.innerText = `Final score: ${score}`
 	saveScoreBtn.innerText = "Save Score"
-	counterContainer.appendChild(saveScoreBtn);
+	buttonsDiv.appendChild(saveScoreBtn);
 }
 
 saveScoreBtn.addEventListener("click", function(event){
