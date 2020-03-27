@@ -12,8 +12,16 @@ body {
 	background: #c7fad8;
 }
 
+header {
+    text-align: center;
+    color: rgb(143, 109, 187);
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
 .wrapper {
-	width: 800px;
+	display: flex;
+	width: 75%;
 	padding: 30px;
 	margin: 30px auto;
 	border: 3px solid black;
