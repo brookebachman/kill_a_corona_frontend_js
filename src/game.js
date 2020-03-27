@@ -89,6 +89,8 @@ function init() {
 	noDisplay(saveScore2Btn);
 	// in case of press 'pause' then 'new'
 	pauseButton.innerText = "Pause Game";
+	// for going from level 2 back to level 1
+	newButton.innerText = "New Game";
 	popUp();
 	scoreNum.innerText = score;
 	timeUp = false;

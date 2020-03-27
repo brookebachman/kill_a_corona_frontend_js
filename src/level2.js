@@ -12,6 +12,7 @@ function startLevel2(){
 	timeUp = false;
 	score = 0;
 	seconds = gameDuration/1000;
+	newButton.innerText = "Go Back to Level 1"
 	init2();
 }
 
@@ -96,5 +97,6 @@ fetch(`${SCORES_URL}`, {
 .then(resp => resp.json())
 .then(function(data){
   console.log("your score was sent for level 2!", data)
-}) 
+})
+saveScore2Btn.innerText = "Score saved!"
 }
