@@ -32,7 +32,7 @@ function init2() {
 		console.log("Game Over...");
 		level2Button.innerText = "Start Game";
 		timeUp = true;
-	}, gameTime);		
+	}, gameDuration);		
 	decrementSeconds = setInterval(function(){
 		if (seconds > 0) {
 			console.log("set interval is running")
