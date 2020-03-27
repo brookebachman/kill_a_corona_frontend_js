@@ -86,9 +86,7 @@ h2 {
 	display: none;
 }
 .game-container {
-	width: 600px;
-	margin: 30px auto;
-	padding: 0%;
+	width: 100%;
 	background: url(assets/yellow.png);
 	background-position: center;
 	background-repeat: no-repeat, repeat;
@@ -109,7 +107,7 @@ h2 {
 .box {
 	width: 200px;
 	height: 200px;
-	
+
 	float: left;
 	position: relative;
 	overflow: hidden;

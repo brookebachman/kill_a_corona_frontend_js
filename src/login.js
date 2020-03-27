@@ -23,7 +23,7 @@ function findOrCreateUser(userNameInput) {
         .then(resp => resp.json())
         .then(function(user){
             displayName(user);
-            greeting.setAttribute('data-id' , user.id);
+            gameContainer.setAttribute('data-id' , user.id);
         })
   }    
 
