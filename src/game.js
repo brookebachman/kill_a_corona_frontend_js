@@ -72,6 +72,7 @@ function init() {
 	setDisplay(pauseButton);
 	setDisplay(endButton);
 	setDisplay(newButton);
+	// in case of press 'pause' then 'new'
 	pauseButton.innerText = "Pause Game";
 	popUp();
 	scoreNum.innerText = score;
@@ -108,7 +109,9 @@ function popUp(){
 function stop(){
 	console.log("Game Stopped...");
 	timeUp = true;
-	Array.prototype.map.call(viruses, virus => virus.classList.remove("up"))
+	Array.prototype.map.call(viruses, virus => {
+		virus.classList.remove("up", "whacked");
+		virus.src = virusImg;})
 	clearInterval(popUpTimer);
 	clearTimeout(gameTimer);
 	clearInterval(decrementSeconds);
@@ -134,11 +137,9 @@ function decrementSecondsFn() {
 
 // Game over
 function gameOver() {
+	stop();
 	noDisplay(pauseButton);
 	noDisplay(endButton);
-	clearInterval(popUpTimer);
-	clearTimeout(gameTimer);
-	clearInterval(decrementSeconds);
 	timerNumber.innerText = `Game over!`
 	scoreNum.innerText = `Final score: ${score}`
 	saveScoreBtn.innerText = "Save Score"

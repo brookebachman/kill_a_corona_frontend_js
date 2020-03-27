@@ -149,3 +149,7 @@ h2 {
 .virus-pic.up {
 	right: -10%;
 }
+
+.virus-pic.whacked {
+	width: 40%;
+}
