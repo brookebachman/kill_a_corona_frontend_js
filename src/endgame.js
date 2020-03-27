@@ -23,6 +23,4 @@ function updateScoreForPlayer(event){
     console.log("your score was sent!", data)
   })
   saveScoreBtn.innerText = "Score saved!"
-}   
-
- 
+}

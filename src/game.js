@@ -178,7 +178,7 @@ saveScoreBtn.addEventListener("click", function(event){
 	updateScoreForPlayer(event);
 })
 
-level2Button.addEventListener("click", function(){
+level2Button.addEventListener("click", () => {
 	startLevel2();
 })
 

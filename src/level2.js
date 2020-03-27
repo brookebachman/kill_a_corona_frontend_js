@@ -1,6 +1,6 @@
 function startLevel2(){
-	init2();
 	console.log("start Level 2")
+	init2();
 	  setDisplay(saveScoreBtn);
 	  saveScoreBtn.addEventListener("click", function(event){
 		updateScoreForPlayer2(event);
