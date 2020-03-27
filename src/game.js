@@ -3,6 +3,8 @@ const scoreNum = document.getElementById("score-num");
 const numViruses = viruses.length;
 const saveScore = document.createElement("button")
 const startButtonDiv = document.getElementById("save-score")
+const level2Div = document.getElementById("level-2")
+const level2Button = document.createElement("button")
 // Images
 const virusImg = "assets/virus.png";
 const virusWhackedImg = "assets/clean.png";
@@ -47,6 +49,12 @@ function init() {
 			saveScore.addEventListener("click", function(event){
 				updateScoreForPlayer(event);
 			})
+			if (score = 8){
+				level2Div.appendChild(level2Button)
+				level2Button.addEventListener("click", function(){
+					startLevel2();
+				})
+			}
 		}
 	}, 1000)
 	}
