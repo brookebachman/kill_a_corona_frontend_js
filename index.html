@@ -18,15 +18,15 @@
           <form id="login">
             <label for="user-name">Enter Username:</label><br>
             <input type="text" id="user-name" name="name" autocomplete="off"><br>
+            <input type="submit" value="Log In!">
           </form>
         </div>
-        <div hidden class="start-div" id="start-div">
-          <button class="btn-start" id="btn-start">Start Game</button>
-          <span id="save-score"></span>
-          <span id="level-2"></span>
-        </div>
+          <button class="btn" id="btn-start">Start Game</button>
+          <button class="btn" id="btn-pause">Pause Game</button>
+          <button class="btn" id="btn-end">End Game</button>
+          <button class="btn" id="btn-new">New Game</button>
       </main>
-      <div hidden class="game-container" id="game-container">
+      <div class="game-container" id="game-container">
         <div id="counters-container">
           <div class="counters" id="score-box">
             <h2>Score</h2>
@@ -35,7 +35,7 @@
           <!-- end score-box -->
           <div class="counters" id="timer-box">
             <h2>Timer</h2>
-            <p id="timer-num">0</p>
+            <p id="timer-num"></p>
           </div>
         </div>
           <!-- end timer-num -->

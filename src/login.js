@@ -1,3 +1,8 @@
+// Login Elements
+const loginForm = document.getElementById("login")
+const loginDiv = document.getElementById("login-form")
+const currentUserDiv = document.getElementById("current-user")
+
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let userNameInput = e.target.name.value;
@@ -19,36 +24,13 @@ function findOrCreateUser(userNameInput) {
             displayName(user);
             const name = document.getElementById("current-user")
             name.setAttribute('data-id' , user.id); 
-
         });
-    }           
-           // user => displayName(user))
-
+  }           
 
 function displayName(user) {
-    currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}</p>`
-    loginDiv.style.visibility = "hidden"
-    startDiv.removeAttribute("hidden")
-   
+    currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}!</p>`
+    loginDiv.style.visibility = "hidden";
+    startButton.style.visibility = "visible";
   }
 
-startButton.addEventListener("click", (event) => {
-	if(startButton.innerText === "Start Game"){
-        gameContainer.removeAttribute("hidden");
-        init();
-       
-	}
-	else{
-        saveScore.innerText = "Save Score"
-        startButtonDiv.appendChild(saveScore)
-        saveScore.addEventListener("click", function(event){
-            updateScoreForPlayer(event);
-        })
-        stop();
-        
-        
-
-        
-	}
-})
-
+// User name is displayed, then game.js for start button event listener

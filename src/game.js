@@ -1,10 +1,14 @@
-const viruses = document.getElementsByClassName("virus-pic")
+// Elements
 const scoreNum = document.getElementById("score-num");
 const numViruses = viruses.length;
 const saveScore = document.createElement("button")
 const startButtonDiv = document.getElementById("save-score")
 const level2Div = document.getElementById("level-2")
 const level2Button = document.createElement("button")
+const saveScoreBtn = document.createElement("button")
+const timerNumber = document.getElementById("timer-num");
+const counterContainer = document.getElementById("counters-container");
+		
 // Images
 const virusImg = "assets/virus.png";
 const virusWhackedImg = "assets/clean.png";
@@ -13,21 +17,67 @@ const virusWhackedImg = "assets/clean.png";
 const gameTime = 12000;
 let minPopUpTime = 1000;
 const maxPopUpTime = 2000;
-const timerNumber = document.getElementById("timer-num");
 
-
-// Game State Variables
+// Variables
 let timeUp = false;
 let score = 0;
 let gameTimer = null;
 let popUpTimer = null;
 let decrementSeconds = null;
-let seconds = gameTime/1000;
+let seconds = gameDuration/1000;
 
 // Random virus
+const viruses = document.getElementsByClassName("virus-pic")
+const numViruses = viruses.length;
 let virus = randomVirus(viruses);
-	
+
+// Event Listeners
+startButton.addEventListener("click", () => {
+	gameContainer.style.visibility = "visible";
+	init();
+	startButton.style.visibility = "hidden"
+	}
+)
+
+pauseButton.addEventListener("click", () => {
+	if(pauseButton.innerText == "Pause Game"){
+		pauseButton.innerText = "Resume Game";
+		stop();
+	}
+	else if (pauseButton.innerText == "Resume Game"){
+		timeUp = false;
+		pauseButton.innerText = "Pause Game"
+		let newTime = seconds*1000;
+		gameTimer = setTimeout(gameTimerFn, newTime);
+		decrementSeconds = setInterval(decrementSecondsFn, 1000);
+		popUp();
+	}
+})
+
+newButton.addEventListener("click", () => {
+	stop();
+	score = 0;
+	timerNumber.innerText = "";
+	seconds = gameDuration/1000;
+	init();
+	}
+)
+
+endButton.addEventListener("click", () => {
+	stop();
+	startButton.style.visibility = "hidden"
+	endButton.style.visibility = "hidden"
+	pauseButton.style.visibility = "hidden"
+	gameOver();
+})
+
+// Start
 function init() {
+	pauseButton.style.visibility = "visible";
+	endButton.style.visibility = "visible";
+	newButton.style.visibility = "visible";
+	pauseButton.innerText = "Pause Game";
+	popUp();
 	scoreNum.innerText = score;
 	timeUp = false;
 	startButton.innerText = "Stop Game";
@@ -72,17 +122,15 @@ function stop(){
 	clearInterval(decrementSeconds);
 
 }
-	
+
+// Viruses Appear
 function popUp(){
-	const time = randomTime(minPopUpTime, maxPopUpTime);
+	let time = randomTime(minPopUpTime, maxPopUpTime);
 	let virus = randomVirus(viruses);
 	virus.classList.add("up");
 	virus.addEventListener("click", () => {
-		if(virus.classList.contains("whacked")){
-			return;
-		}
-		else {
-		virus.setAttribute("src", virusWhackedImg)
+		if(!virus.classList.contains("whacked")) {
+		virus.src = virusWhackedImg
 		virus.classList.remove("up")
 		virus.classList.add("whacked")
 		score++;
@@ -91,13 +139,55 @@ function popUp(){
 	})
 	popUpTimer = setTimeout(() => {
 		virus.classList.remove("up", "whacked");
-		virus.setAttribute("src", virusImg)
+		virus.src = virusImg;
 		if(timeUp === false){
-				popUp();
-			} 
+			popUp();
+		}
 	}, time);
 }
+	
+// Stop
+	
+function stop(){
+	console.log("Game Stopped...");
+	timeUp = true;
+	Array.prototype.map.call(viruses, virus => virus.classList.remove("up"))
+	clearInterval(popUpTimer);
+	clearTimeout(gameTimer);
+	clearInterval(decrementSeconds);
+}
 
+// Timer Functions
+
+function gameTimerFn() {
+	console.log("Game Over...");
+	timeUp = true;
+}
+
+function decrementSecondsFn() {
+	if (seconds > 0) {
+		console.log("set interval is running")
+		seconds -= 1;
+		timerNumber.innerText = seconds + " seconds left!";
+	}
+	else {
+		gameOver();
+	}
+}
+
+// Game over
+function gameOver() {
+	timerNumber.innerText = `Game over!`
+	scoreNum.innerText = `Final score: ${score}`
+	saveScoreBtn.innerText = "Save Score"
+	counterContainer.appendChild(saveScoreBtn);
+}
+
+saveScoreBtn.addEventListener("click", function(event){
+	updateScoreForPlayer(event);
+})
+
+// Random Selectors
 function randomTime(min, max) {
 	return Math.round(Math.random() * (max - min) + min);
 }
