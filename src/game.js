@@ -1,5 +1,10 @@
 // Elements
 const scoreNum = document.getElementById("score-num");
+const numViruses = viruses.length;
+const saveScore = document.createElement("button")
+const startButtonDiv = document.getElementById("save-score")
+const level2Div = document.getElementById("level-2")
+const level2Button = document.createElement("button")
 const saveScoreBtn = document.createElement("button")
 const timerNumber = document.getElementById("timer-num");
 const counterContainer = document.getElementById("counters-container");
@@ -14,9 +19,9 @@ noDisplay(saveScoreBtn);
 const virusImg = "assets/virus.png";
 const virusWhackedImg = "assets/clean.png";
 
-// Times
-const gameDuration = 10000;
-const minPopUpTime = 1000;
+// Game Parameters
+const gameTime = 12000;
+let minPopUpTime = 1000;
 const maxPopUpTime = 2000;
 
 // Variables
@@ -84,8 +89,47 @@ function init() {
 	popUp();
 	scoreNum.innerText = score;
 	timeUp = false;
-	gameTimer = setTimeout(gameTimerFn, gameDuration);
-	decrementSeconds = setInterval(decrementSecondsFn, 1000)
+	startButton.innerText = "Stop Game";
+	popUp();
+	gameTimer = setTimeout(() => {
+		console.log("Game Over...");
+		startButton.innerText = "Start Game";
+		timeUp = true;
+	}, gameTime);		
+	decrementSeconds = setInterval(function(){
+		if (seconds > 0) {
+			console.log("set interval is running")
+			seconds -= 1;
+			timerNumber.innerText = seconds + " seconds left!";
+		}
+		else {
+			timerNumber.innerText = `Time's up! Your score is ${score}`
+			saveScore.innerText = "Save Score"
+			startButtonDiv.appendChild(saveScore)
+			saveScore.addEventListener("click", function(){
+					updateScoreForPlayer();
+				
+			})
+			if (score > 6){
+				level2Button.innerText = "Play Level 2"
+				level2Div.appendChild(level2Button)
+				level2Button.addEventListener("click", function(){
+					startLevel2();
+				})
+			}
+		}
+	}, 1000)
+	}
+	
+function stop(){
+	console.log("Game Stopped...");
+	startButton.innerText = "Start Game";
+	timeUp = true;
+	Array.prototype.map.call(viruses, virus => virus.classList.remove("up"))
+	clearInterval(popUpTimer);
+	clearInterval(gameTimer);
+	clearInterval(decrementSeconds);
+
 }
 
 // Viruses Appear
