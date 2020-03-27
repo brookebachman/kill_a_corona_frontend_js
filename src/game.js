@@ -111,6 +111,7 @@ function init() {
 				
 			})
 			if (score > 6){
+				setDisplay(level2Button);
 				level2Button.innerText = "Play Level 2"
 				buttonsDiv.appendChild(level2Button)
 				level2Button.addEventListener("click", function(){
@@ -194,6 +195,14 @@ function gameOver() {
 	timerNumber.innerText = `Game over!`
 	scoreNum.innerText = `Final score: ${score}`
 	setDisplay(saveScoreBtn);
+	if (score > 6){
+		setDisplay(level2Button);
+		level2Button.innerText = "Play Level 2"
+		buttonsDiv.appendChild(level2Button)
+		level2Button.addEventListener("click", function(){
+			startLevel2();
+		})
+	}
 }
 
 saveScoreBtn.addEventListener("click", function(event){
@@ -210,3 +219,4 @@ function randomVirus(viruses) {
 	const virus = viruses[virusNum];
 	return virus;
 }
+
