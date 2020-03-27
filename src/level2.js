@@ -1,36 +1,20 @@
 function startLevel2(){
 	console.log("start Level 2")
 	init2();
-	  setDisplay(saveScoreBtn);
-	  saveScoreBtn.addEventListener("click", function(event){
-		updateScoreForPlayer2(event);
-	})
-	stop();
-	setDisplay(saveScoreBtn);
-	saveScoreBtn.addEventListener("click", function(event){
-	  updateScoreForPlayer2(event);
-  })
 }
 
 function init2() {
-	let minPopUpTime = 900;
 	setDisplay(pauseButton);
 	setDisplay(endButton);
 	noDisplay(saveScoreBtn);
-	setDisplay(level2Button);
 	score = 0;
-   
-   
 	// in case of press 'pause' then 'new'
 	pauseButton.innerText = "Pause Game";
-	popUp();
+	popUp2();
 	scoreNum.innerText = score;
 	timeUp = false;
-	level2Button.innerText = "Stop Game";
-	popUp();
 	gameTimer = setTimeout(() => {
 		console.log("Game Over...");
-		level2Button.innerText = "Start Game";
 		timeUp = true;
 	}, gameDuration);		
 	decrementSeconds = setInterval(function(){
@@ -41,14 +25,32 @@ function init2() {
 		}
 		else {
 			timerNumber.innerText = `Time's up! Your score is ${score}`
-			saveScore.innerText = "Save Score"
-			saveScore.addEventListener("click", function(){
-					updateScoreForPlayer2();
-				
-			})
 		}
 	}, 1000)
-	}
+}
+
+function popUp2(){
+	let minPopUpTime = 900;
+	let time = randomTime(minPopUpTime, maxPopUpTime);
+	let virus = randomVirus(viruses);
+	virus.classList.add("up");
+	virus.addEventListener("click", () => {
+		if(!virus.classList.contains("whacked")) {
+		virus.src = virusWhackedImg
+		virus.classList.remove("up")
+		virus.classList.add("whacked")
+		score++;
+		scoreNum.innerText = score;
+		}
+	})
+	popUpTimer = setTimeout(() => {
+		virus.classList.remove("up", "whacked");
+		virus.src = virusImg;
+		if(timeUp === false){
+			popUp();
+		}
+	}, time);
+}
 		
 function updateScoreForPlayer2(){
 let userId = gameContainer.dataset.id
