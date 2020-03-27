@@ -3,6 +3,7 @@ const scoreNum = document.getElementById("score-num");
 const saveScoreBtn = document.createElement("button")
 const timerNumber = document.getElementById("timer-num");
 const counterContainer = document.getElementById("counters-container");
+const buttonsDiv = document.getElementById("game-buttons")
 		
 // Images
 const virusImg = "assets/virus.png";
@@ -30,7 +31,10 @@ let virus = randomVirus(viruses);
 startButton.addEventListener("click", () => {
 	gameContainer.style.visibility = "visible";
 	init();
-	startButton.style.visibility = "hidden"
+	startButton.style.visibility = "hidden";
+	buttonsDiv.appendChild(pauseButton)
+	buttonsDiv.appendChild(endButton)
+	buttonsDiv.appendChild(newButton)
 	}
 )
 

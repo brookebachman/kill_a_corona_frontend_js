@@ -29,18 +29,24 @@ function findOrCreateUser(userNameInput) {
   }    
 
 function displayName(user) {
-  currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}!</p>`;
-  main.appendChild(startButton)
+  // currentUserDiv.innerHTML = `<p data-id= ${user.id}id="display-user">Welcome, ${user.name}!</p>`;
+  let p = document.createElement("p")
+  p.id = "greet-user"
+  let userName = user.name
+  p.innerText = `Welcome, ${userName}!`
+  currentUserDiv.appendChild(p);
+  delayShow();
 }
 
-// var startDelay;
+// Weird delay on transition from login to start button
+// Hacky solution, come back to this later 
 
-// function showStartButton() {
-//   startDelay = setTimeout(delayFunc, 1000);
-// }
+let startDelay;
 
-// function delayFunc() {
-//   makeVisible(startButton);
-// }
+function delayShow() {
+  startDelay = setTimeout(showStart, 1000);
+}
 
-// User name is displayed, then game.js for start button event listener
+function showStart() {
+  currentUserDiv.appendChild(startButton)
+}

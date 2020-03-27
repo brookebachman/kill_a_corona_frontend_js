@@ -10,8 +10,6 @@
     <div class="wrapper">
       <header>
         <h1>Whack-a-Virus</h1>
-        <div id="current-user" data-id="">
-        </div>
       </header>
       <main>
         <form id="login">
@@ -19,8 +17,12 @@
           <input type="text" id="user-name" name="name" autocomplete="off"><br>
           <input class="btn" type="submit" value="Log In!">
         </form>
+        <div id="current-user" data-id="">
+        </div>
       </main>
       <div class="game-container" id="game-container">
+        <div class="game-buttons" id="game-buttons">
+        </div>
         <div id="counters-container">
           <div class="counters" id="score-box">
             <h2>Score</h2>
