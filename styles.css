@@ -25,7 +25,7 @@ h2 {
 
 .wrapper {
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	flex-wrap: wrap;
 	width: 75%;
 	margin: auto;
@@ -42,7 +42,7 @@ h2 {
     width: 75%;
     height: 75%;
 	margin: auto;
-	margin-top: 50%;
+	margin-top: 10%;
     background-color: #f2ebf2;
 	box-shadow: 10px 5px #545354;
 	text-align: center;
