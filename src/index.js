@@ -34,9 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function makeVisible(element) {
-    element.style.visibility = "visible"
+    // element.style.visibility = "visible"
+    element.style.display = "block"
 }
 
 function makeHidden(element) {
-    element.style.visibility = "hidden"
+    // element.style.visibility = "hidden"
+    element.style.display = "none"
 }
